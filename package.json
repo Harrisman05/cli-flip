@@ -1,11 +1,29 @@
 {
   "name": "flip-tricks-ascii",
-  "module": "main.ts",
+  "version": "1.0.0",
+  "description": "CLI quiz to guess the names of skateboard flip tricks which are in an animated ascii format",
+  "main": "./dist/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently  \"tsc --watch\" \" nodemon ./dist/main.js\"",
+    "build": "tsc",
+    "start": "node ./dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harrisman05/flip-tricks-ascii.git"
+  },
+  "author": "Harley Harris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harrisman05/flip-tricks-ascii/issues"
+  },
+  "homepage": "https://github.com/Harrisman05/flip-tricks-ascii#readme",
   "devDependencies": {
-    "bun-types": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "type": "module"
+    "@types/node": "^20.8.0",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.2.2"
+  }
 }
