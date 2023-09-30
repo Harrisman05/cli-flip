@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "CLI quiz to guess the names of skateboard flip tricks which are in an animated ascii format",
   "main": "./dist/main.js",
+  "type": "module",
   "scripts": {
     "dev": "concurrently  \"tsc --watch\" \" nodemon ./dist/main.js\"",
     "build": "tsc",
@@ -20,14 +21,17 @@
   },
   "homepage": "https://github.com/Harrisman05/flip-tricks-ascii#readme",
   "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/keypress": "^2.0.30",
     "@types/node": "^20.8.0",
     "concurrently": "^8.2.1",
     "nodemon": "^3.0.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@inquirer/prompts": "^3.1.2",
     "chalk": "^5.3.0",
-    "chalk-animation": "^2.0.3"
+    "chalk-animation": "^2.0.3",
+    "inquirer": "^9.2.11",
+    "keypress": "^0.2.1"
   }
 }
