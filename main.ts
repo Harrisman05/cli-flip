@@ -29,7 +29,7 @@ const startAscii = (i = 3) => {
     const taiProcess = spawn(scriptPath, args);
 
     // Listen for stdout data (ASCII art output)
-    const onData = (data: any) => {
+    const onData = (data: string) => {
         process.stdout.write(data);
     };
 
@@ -44,7 +44,7 @@ const startAscii = (i = 3) => {
     taiProcess.on('close', (code) => {
         console.log(`Replays left ${i}. Child process exited with code ${code}`);
         if (i > 0) {
-            startAscii(--i)
+            startAscii(--i);
         } else {
             startQuiz();
         }
