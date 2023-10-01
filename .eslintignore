@@ -3,6 +3,7 @@ dist
 rust-binaries
 .eslintrc.json
 .prettierrc
+jest.config.js
 package-lock.json 
 package.json
 README.md
