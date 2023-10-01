@@ -1,34 +1,56 @@
 #!/usr/bin/env node
 
-import { spawn } from 'child_process'
+import { spawn } from 'child_process';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
 
-const scriptPath = './rust-binaries/target/release/tai';
-const args = ['-c', '-d', '--scale', '1', '--sleep', '50', './assets/switch-heel-body-varial.gif'];
-const taiProcess = spawn(scriptPath, args);
-
-// Listen for stdout data (ASCII art output)
-const onData = (data: any) => {
-    process.stdout.write(data);
+const main = async () => {
+    await startQuiz();
 };
 
-// Attach the event listener
-taiProcess.stdout.on('data', onData);
+const startQuiz = async () => {
+    chalk.bgBlue(console.log('Welcome to the flip-tricks-ascii quiz!'));
+    await inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'continue',
+            message: 'Press Enter to start quiz',
+            default: true
+        }
+    ]);
+    startAscii();
+};
 
-setTimeout(() => {
-    taiProcess.stdout.off('data', onData);
-    console.log('Stopped listening for data.');
-    // Ensure the process is killed on script exit
-    taiProcess.kill('SIGINT');
-}, 30000);  
+const startAscii = (i = 3) => {
 
-taiProcess.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
-});
+    // TODO convert to params
+    const scriptPath = './rust-binaries/target/release/tai';
+    const args = ['-c', '-d', '--scale', '1', '--sleep', '50', '-O', './assets/hardflip.gif'];
+    const taiProcess = spawn(scriptPath, args);
 
-taiProcess.on('close', (code) => {
-    console.log(`Child process exited with code ${code}`);
-});
+    // Listen for stdout data (ASCII art output)
+    const onData = (data: any) => {
+        process.stdout.write(data);
+    };
 
+    // Attach the event listener
+    taiProcess.stdout.on('data', onData);
 
+    taiProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    // close stream and replay or return to quiz
+    taiProcess.on('close', (code) => {
+        console.log(`Replays left ${i}. Child process exited with code ${code}`);
+        if (i > 0) {
+            startAscii(--i)
+        } else {
+            startQuiz();
+        }
+    });
+};
+
+main();
 
 
