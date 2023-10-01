@@ -1,1 +1,23 @@
-{"rustc":15699327122048238920,"features":"[]","target":15205359493017569073,"profile":3567329628440936607,"path":13265720644256728065,"deps":[[3889717946063921280,"num_traits",false,2971056796008136234],[11240074021302633345,"num_integer",false,4174887467359022966],[11928408529930203077,"build_script_build",false,1192889260714529897]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/num-rational-af769fdf3cf5980c/dep-lib-num-rational"}}],"rustflags":[],"metadata":18311408697950330488,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[]",
+    "target": 15205359493017569073,
+    "profile": 3567329628440936607,
+    "path": 13265720644256728065,
+    "deps": [
+        [3889717946063921280, "num_traits", false, 2971056796008136234],
+        [11240074021302633345, "num_integer", false, 4174887467359022966],
+        [11928408529930203077, "build_script_build", false, 1192889260714529897]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/num-rational-af769fdf3cf5980c/dep-lib-num-rational"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 18311408697950330488,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}

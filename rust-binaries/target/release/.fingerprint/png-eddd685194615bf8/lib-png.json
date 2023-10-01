@@ -1,1 +1,24 @@
-{"rustc":15699327122048238920,"features":"[\"default\", \"deflate\", \"png-encoding\"]","target":5151647918323596690,"profile":3567329628440936607,"path":14311937658082140162,"deps":[[1106676309365235156,"deflate",false,12856189876178183884],[1601726674991842347,"crc32fast",false,17494454383949459496],[9789335138231501906,"miniz_oxide",false,6492508989638100924],[14051957667571541382,"bitflags",false,792103955432639773]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/png-eddd685194615bf8/dep-lib-png"}}],"rustflags":[],"metadata":3612041375080477983,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[\"default\", \"deflate\", \"png-encoding\"]",
+    "target": 5151647918323596690,
+    "profile": 3567329628440936607,
+    "path": 14311937658082140162,
+    "deps": [
+        [1106676309365235156, "deflate", false, 12856189876178183884],
+        [1601726674991842347, "crc32fast", false, 17494454383949459496],
+        [9789335138231501906, "miniz_oxide", false, 6492508989638100924],
+        [14051957667571541382, "bitflags", false, 792103955432639773]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/png-eddd685194615bf8/dep-lib-png"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 3612041375080477983,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}

@@ -1,1 +1,31 @@
-{"rustc":15699327122048238920,"features":"[]","target":6874351805519737545,"profile":3567329628440936607,"path":9699009605652566156,"deps":[[6685014296130524576,"lazy_static",false,15592830592771833341],[7113306818857637972,"build_script_build",false,16117235604970684065],[7450813542380652258,"crossbeam_utils",false,8670925045713875525],[8949842075372002005,"crossbeam_channel",false,961692064707099859],[11675848415940987209,"num_cpus",false,7058251039859594238],[15393398180321223846,"crossbeam_deque",false,13037330957662756411]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/rayon-core-305bbf0d3bd041b9/dep-lib-rayon-core"}}],"rustflags":[],"metadata":14590378261418540923,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[]",
+    "target": 6874351805519737545,
+    "profile": 3567329628440936607,
+    "path": 9699009605652566156,
+    "deps": [
+        [6685014296130524576, "lazy_static", false, 15592830592771833341],
+        [
+            7113306818857637972,
+            "build_script_build",
+            false,
+            16117235604970684065
+        ],
+        [7450813542380652258, "crossbeam_utils", false, 8670925045713875525],
+        [8949842075372002005, "crossbeam_channel", false, 961692064707099859],
+        [11675848415940987209, "num_cpus", false, 7058251039859594238],
+        [15393398180321223846, "crossbeam_deque", false, 13037330957662756411]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/rayon-core-305bbf0d3bd041b9/dep-lib-rayon-core"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 14590378261418540923,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}

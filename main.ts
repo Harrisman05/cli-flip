@@ -22,14 +22,22 @@ const startQuiz = async () => {
 };
 
 const startAscii = (i = 3) => {
-
     // TODO convert to params
     const scriptPath = './rust-binaries/target/release/tai';
-    const args = ['-c', '-d', '--scale', '1', '--sleep', '50', '-O', './assets/hardflip.gif'];
+    const args = [
+        '-c',
+        '-d',
+        '--scale',
+        '1',
+        '--sleep',
+        '50',
+        '-O',
+        './assets/hardflip.gif'
+    ];
     const taiProcess = spawn(scriptPath, args);
 
     // Listen for stdout data (ASCII art output)
-    const onData = (data: any) => {
+    const onData = (data: string) => {
         process.stdout.write(data);
     };
 
@@ -42,9 +50,11 @@ const startAscii = (i = 3) => {
 
     // close stream and replay or return to quiz
     taiProcess.on('close', (code) => {
-        console.log(`Replays left ${i}. Child process exited with code ${code}`);
+        console.log(
+            `Replays left ${i}. Child process exited with code ${code}`
+        );
         if (i > 0) {
-            startAscii(--i)
+            startAscii(--i);
         } else {
             startQuiz();
         }
@@ -52,5 +62,3 @@ const startAscii = (i = 3) => {
 };
 
 main();
-
-

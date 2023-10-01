@@ -1,1 +1,22 @@
-{"rustc":15699327122048238920,"features":"[\"crossbeam-utils\", \"default\", \"std\"]","target":13396203165277677985,"profile":3567329628440936607,"path":12308371342132721572,"deps":[[2452538001284770427,"cfg_if",false,7333790753835368651],[7450813542380652258,"crossbeam_utils",false,8670925045713875525]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/crossbeam-channel-7a2a8c7f1118b05e/dep-lib-crossbeam-channel"}}],"rustflags":[],"metadata":5724866927128074370,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[\"crossbeam-utils\", \"default\", \"std\"]",
+    "target": 13396203165277677985,
+    "profile": 3567329628440936607,
+    "path": 12308371342132721572,
+    "deps": [
+        [2452538001284770427, "cfg_if", false, 7333790753835368651],
+        [7450813542380652258, "crossbeam_utils", false, 8670925045713875525]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/crossbeam-channel-7a2a8c7f1118b05e/dep-lib-crossbeam-channel"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 5724866927128074370,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}
