@@ -1,1 +1,26 @@
-{"rustc":15699327122048238920,"features":"[\"alloc\", \"lazy_static\", \"std\"]","target":2794700018165025075,"profile":3567329628440936607,"path":455499641228722012,"deps":[[2452538001284770427,"cfg_if",false,7333790753835368651],[3839468882966563677,"build_script_build",false,2947085346539772925],[6685014296130524576,"lazy_static",false,15592830592771833341],[7450813542380652258,"crossbeam_utils",false,8670925045713875525],[13525808508335938756,"memoffset",false,15441020039096093842],[16976214665626565167,"scopeguard",false,10279902942523063057]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/crossbeam-epoch-c0c17ee81aacf1ea/dep-lib-crossbeam-epoch"}}],"rustflags":[],"metadata":9645960989302628330,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[\"alloc\", \"lazy_static\", \"std\"]",
+    "target": 2794700018165025075,
+    "profile": 3567329628440936607,
+    "path": 455499641228722012,
+    "deps": [
+        [2452538001284770427, "cfg_if", false, 7333790753835368651],
+        [3839468882966563677, "build_script_build", false, 2947085346539772925],
+        [6685014296130524576, "lazy_static", false, 15592830592771833341],
+        [7450813542380652258, "crossbeam_utils", false, 8670925045713875525],
+        [13525808508335938756, "memoffset", false, 15441020039096093842],
+        [16976214665626565167, "scopeguard", false, 10279902942523063057]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/crossbeam-epoch-c0c17ee81aacf1ea/dep-lib-crossbeam-epoch"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 9645960989302628330,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}

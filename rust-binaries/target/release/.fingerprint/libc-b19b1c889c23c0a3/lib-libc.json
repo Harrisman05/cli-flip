@@ -1,1 +1,21 @@
-{"rustc":15699327122048238920,"features":"[\"default\", \"std\"]","target":1307715644349195660,"profile":3567329628440936607,"path":10226575183919107341,"deps":[[17863375412107256028,"build_script_build",false,7781793767647201910]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/libc-b19b1c889c23c0a3/dep-lib-libc"}}],"rustflags":[],"metadata":14998826085014762512,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[\"default\", \"std\"]",
+    "target": 1307715644349195660,
+    "profile": 3567329628440936607,
+    "path": 10226575183919107341,
+    "deps": [
+        [17863375412107256028, "build_script_build", false, 7781793767647201910]
+    ],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/libc-b19b1c889c23c0a3/dep-lib-libc"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 14998826085014762512,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}

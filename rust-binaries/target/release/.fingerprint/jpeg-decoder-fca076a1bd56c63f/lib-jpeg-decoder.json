@@ -1,1 +1,19 @@
-{"rustc":15699327122048238920,"features":"[\"rayon\"]","target":2124640013623192182,"profile":3567329628440936607,"path":9375160809593149780,"deps":[[8006392327204000360,"rayon",false,10780303556919524000]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/jpeg-decoder-fca076a1bd56c63f/dep-lib-jpeg-decoder"}}],"rustflags":[],"metadata":11222538340481966606,"config":2202906307356721367,"compile_kind":0}
+{
+    "rustc": 15699327122048238920,
+    "features": "[\"rayon\"]",
+    "target": 2124640013623192182,
+    "profile": 3567329628440936607,
+    "path": 9375160809593149780,
+    "deps": [[8006392327204000360, "rayon", false, 10780303556919524000]],
+    "local": [
+        {
+            "CheckDepInfo": {
+                "dep_info": "release/.fingerprint/jpeg-decoder-fca076a1bd56c63f/dep-lib-jpeg-decoder"
+            }
+        }
+    ],
+    "rustflags": [],
+    "metadata": 11222538340481966606,
+    "config": 2202906307356721367,
+    "compile_kind": 0
+}
