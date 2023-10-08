@@ -3,6 +3,16 @@
 import { spawn } from 'child_process';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
+import { TAI_BINARY_EXECUTABLE_FILEPATH } from './config/constants';
+import { getArgs } from './utils/getArgs';
+
+function sleep(ms: number): Promise<void> {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
 
 const main = async () => {
   await startQuiz();
@@ -18,47 +28,47 @@ const startQuiz = async () => {
       default: true
     }
   ]);
-  startAscii();
+  await showRules();
+  await startAscii();
 };
 
-const startAscii = (i = 3) => {
-  // TODO convert to params
-  const scriptPath = './rust-binaries/target/release/tai';
-  const args = [
-    '-c',
-    '-d',
-    '--scale',
-    '1',
-    '--sleep',
-    '50',
-    '-O',
-    './assets/hardflip.gif'
-  ];
-  const taiProcess = spawn(scriptPath, args);
+const startAscii = async (i = 2, args: string[] = []) => {
+  const currentArgs = args.length ? args : getArgs();
+  const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [...currentArgs]);
 
-  // Listen for stdout data (ASCII art output)
-  const onData = (data: string) => {
-    process.stdout.write(data);
-  };
+  // how to force stdout streams to wait - https://kisaragi-hiu.com/nodejs-cmd/
+  return new Promise(() => {
+    // Write out the data
 
-  // Attach the event listener
-  taiProcess.stdout.on('data', onData);
+    taiProcess.stdout.on('data', (data: string) => {
+      process.stdout.write(data);
+      process.stdout.write('\n');
+      process.stdout.write('\n');
+      process.stdout.write(chalk.bgBlue('Skater stance: ...TODO!'));
+      process.stdout.write('\n');
+      process.stdout.write('\n');
+    });
 
-  taiProcess.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
+    taiProcess.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+    });
+
+    // close stream and replay or return to quiz
+    taiProcess.on('close', async () => {
+      i > 0 ? await startAscii(i - 1, currentArgs) : startQuiz();
+    });
   });
+};
 
-  // close stream and replay or return to quiz
-  taiProcess.on('close', (code) => {
-    console.log(
-      `Replays left ${i}. Child process exited with code ${code}`
-    );
-    if (i > 0) {
-      startAscii(--i);
-    } else {
-      startQuiz();
-    }
-  });
+const showRules = async () => {
+  console.log('see if we sleep...');
+  await sleep(100);
+  console.log('2nd one');
+  await sleep(100);
+  console.log('3rd one');
+  await sleep(100);
+  console.log('Leggo!');
+  await sleep(100);
 };
 
 main();
