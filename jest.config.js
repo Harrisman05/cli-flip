@@ -1,6 +1,5 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
-  roots: ["<rootDir>/src", "<rootDir>/tests"],
+  roots: ["<rootDir>/tests"],
   testPathIgnorePatterns: ["/node_modules/", "/rust-binaries/", "/dist/"],
   collectCoverageFrom: ["./src/**/*.ts"],
   preset: 'ts-jest',
@@ -9,4 +8,4 @@ const config = {
   testMatch: ["**/tests/**/*.test.ts"],
 };
 
-export default config;
+module.exports = config;
