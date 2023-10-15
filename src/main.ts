@@ -10,6 +10,8 @@ import writeTaiProcess from './utils/writeTaiProcess';
 import errorTaiProcess from './utils/errorTaiProcess';
 import removePromptText from './utils/removePromptText';
 import showRules from './utils/showRules';
+import { getRandomTrick } from './utils/getRandomTrick';
+import { Trick } from './model/Trick';
 
 const main = async () => {
   await startQuiz();
@@ -26,11 +28,16 @@ const startQuiz = async () => {
     }
   ]);
   await showRules();
-  startGif();
+  startGif({} as Trick); // use type assertion to allow empty object to pass for first call
 };
 
-const guessGif = async (args: string[]) => {
-  // const correctTrick = args.at(-1);
+// const generateChoices = (args) => {
+
+// }
+
+const guessGif = async (trick: Trick) => {
+  // const correctTrick = trick.name
+  // const generateChoices()
   const answers = await inquirer.prompt([
     {
       type: 'list',
@@ -47,14 +54,19 @@ const guessGif = async (args: string[]) => {
   ]);
   console.log(answers.tricks);
   if (answers.tricks === `${chalk.dim('REPLAY GIF')}`) {
-    startGif(args);
+    startGif(trick);
   }
   if (answers.tricks === 'Kickflip') console.log('CORRECT');
 };
 
-const startGif = (args: string[] = []) => {
-  const currentArgs = args.length ? args : getArgs();
-  const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [...currentArgs]);
+const startGif = (trick: Trick) => {
+  const currentTrick = Object.keys(trick).length ? trick : getRandomTrick();
+  console.log(currentTrick);
+
+  const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [
+    ...getArgs(),
+    currentTrick.filepath
+  ]);
 
   // Creating this interface prevents the user from inputting early
   const rl = readline.createInterface({
@@ -70,7 +82,7 @@ const startGif = (args: string[] = []) => {
   taiProcess.on('close', async () => {
     removePromptText();
     rl.close(); // close the interface to prevent the too many event listeners attached bug
-    await guessGif(currentArgs);
+    await guessGif(currentTrick);
   });
 };
 
