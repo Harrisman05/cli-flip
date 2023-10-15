@@ -1,5 +1,5 @@
 import { Trick } from './Trick';
 
-export interface Tricks {
+export interface TrickBank {
     [key: string]: Trick;
 }

@@ -1,11 +1,13 @@
-import tricks from '../data/tricks';
+import { TrickBank } from '../model/TrickBank';
 
-export const getRandomTrick = () => {
+const getRandomTrick = (trickBank: TrickBank) => {
   const randomTrick =
-        tricks[
-          Object.keys(tricks)[
-            Math.floor(Math.random() * Object.keys(tricks).length)
+        trickBank[
+          Object.keys(trickBank)[
+            Math.floor(Math.random() * Object.keys(trickBank).length)
           ]
         ];
   return randomTrick;
 };
+
+export default getRandomTrick;
