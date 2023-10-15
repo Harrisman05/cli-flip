@@ -1,7 +1,7 @@
 import { getRandomTrickFilePath } from './getRandomTrickFilePath.js';
 import { TAI_SCRIPT_ARGUMENTS } from '../config/constants.js';
 
-export const getArgs = () => {
+const getArgs = () => {
   return [
     TAI_SCRIPT_ARGUMENTS.dither,
     TAI_SCRIPT_ARGUMENTS.ditherScale,
@@ -14,3 +14,5 @@ export const getArgs = () => {
     getRandomTrickFilePath()
   ];
 };
+
+export default getArgs;
