@@ -1,4 +1,4 @@
-import { tricksFilePaths } from '../data/tricksFilePaths.js';
+import { tricksFilePaths } from '../data/tricksFilePaths';
 
 export const getRandomTrickFilePath = () => {
   const randomTrick =

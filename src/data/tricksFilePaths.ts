@@ -1,4 +1,4 @@
-import { TricksFilePaths } from '../types/TricksFilePaths.js';
+import { TricksFilePaths } from '../model/TricksFilePaths';
 
 const tricksBasePath = './assets/';
 
