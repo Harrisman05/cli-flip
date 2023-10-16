@@ -4,12 +4,14 @@ import getRandomTrick from './getRandomTrick';
 
 const generateChoices = (correctTrick: Trick) => {
   const randomTrickBank = structuredClone(masterTrickBank); // clone the master trickBank as this function directly mutates the object :( Want availablity to all tricks in the choice array so have to use master trickbank
-  delete randomTrickBank[correctTrick.propName]; // delete correct trick to remove it from randomiser
 
   const blankChoices = ['_', '_', '_', '_'];
   const choices = blankChoices
     .map((_, i) => {
-      if (i === 0) return correctTrick.name;
+      if (i === 0) {
+        delete randomTrickBank[correctTrick.propName]; // delete correct trick to remove it from randomiser
+        return correctTrick.name;
+      }
 
       const { name, propName } = getRandomTrick(randomTrickBank);
       delete randomTrickBank[propName];
