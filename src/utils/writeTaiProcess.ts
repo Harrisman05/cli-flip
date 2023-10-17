@@ -1,13 +1,13 @@
 import chalk from 'chalk';
 import { score } from '../model/Score';
 
-const writeTaiProcess = (choices: string[]) => {
+const writeTaiProcess = (choices: string[], stance: string) => {
   let textLogged = false;
   return (data: string) => {
     process.stdout.write(data);
     if (!textLogged) {
       process.stdout.write(`                                           ${chalk.green('Playing gif...')}\n`);
-      process.stdout.write(`  Skater stance:\n`);
+      process.stdout.write(`  Skater stance: ${stance}\n`);
       process.stdout.write('\n');
       process.stdout.write(
         `${chalk.green('?')} ${chalk.bold('Guess the trick! 🛹🤔')} ${chalk.dim('(input blocked)')}\n`,

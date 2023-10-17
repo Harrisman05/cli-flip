@@ -86,7 +86,7 @@ const startGif = (
   });
 
   // Write out the data
-  taiProcess.stdout.on('data', writeTaiProcess(currentChoices)); // horrible, but this gets an extra parameter into the writeTaiProcess callback
+  taiProcess.stdout.on('data', writeTaiProcess(currentChoices, correctTrick.stance)); // horrible, but this gets an extra parameters into the writeTaiProcess callback
   taiProcess.stderr.on('data', errorTaiProcess);
 
   // close stream, remove the prompt text and close rl interface
