@@ -41,7 +41,7 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
       type: 'list',
       name: 'trick',
       message: 'Guess the trick! 🛹🤔',
-      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices],
+      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices.map((choice) => chalk.yellow(choice))],
     },
   ]);
   console.log(
