@@ -1,11 +1,9 @@
 import readline from 'readline';
 
 const removePromptText = () => {
-  for (let i = 0; i < 8; i++) {
-    readline.clearLine(process.stdout, 0); // Clear the line
-    readline.moveCursor(process.stdout, 0, -1); // Move cursor up one line
-  }
-  console.log('\n'); // newline to prompt inquirer properly
+  // Clear the "Playing gif..." text
+  readline.clearLine(process.stdout, 0);
+  readline.moveCursor(process.stdout, 0, 3);
 };
 
 export default removePromptText;

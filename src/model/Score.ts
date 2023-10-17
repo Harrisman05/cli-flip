@@ -8,7 +8,7 @@ export default class Score {
   private constructor() {
     // private constructor to prevent direct instantiation with new keyword
     this._totalQuestions = 20;
-    this._currentQuestion = 1;
+    this._currentQuestion = 0;
     this._correctAnswers = 0;
     this._incorrectAnswers = 0;
   }
@@ -57,3 +57,5 @@ export default class Score {
     return ++this._incorrectAnswers;
   }
 }
+
+export const score = Score.getInstance();

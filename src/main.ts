@@ -15,6 +15,7 @@ import { TrickBank } from './model/TrickBank';
 import getCurrentTrickBank from './utils/getCurrentTrickBank';
 import getCorrectTrick from './utils/getCorrectTrick';
 import getCurrentChoices from './utils/getCurrentChoices';
+import { score } from './model/Score';
 
 const main = async () => {
   await startQuiz();
@@ -27,36 +28,42 @@ const startQuiz = async () => {
       type: 'confirm',
       name: 'continue',
       message: 'Press Enter to start quiz',
-      default: true
-    }
+      default: true,
+    },
   ]);
   await showRules();
   startGif();
 };
 
-const guessGif = async (
-  currrentTrickBank: TrickBank,
-  correctTrick: Trick,
-  choices: string[]
-) => {
+const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choices: string[]) => {
   const answer = await inquirer.prompt([
     {
       type: 'list',
       name: 'trick',
       message: 'Guess the trick! 🛹🤔',
-      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices]
-    }
+      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices],
+    },
   ]);
+  console.log(
+    `✅ - ${score.correctAnswers} | ❌ - ${score.incorrectAnswers} | ${score.currentQuestion}/${score.totalQuestions}`,
+  );
 
   if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
+    process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank, correctTrick, choices);
   } else if (answer.trick === correctTrick.name) {
     console.log('CORRECT');
+    score.addCorrectAnswer();
+    score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName]; // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
+    process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
   } else if (answer.trick !== correctTrick.name) {
     console.log('WRONG');
+    score.addIncorrectAnswer();
+    score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName];
+    process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
   }
 };
@@ -64,21 +71,18 @@ const guessGif = async (
 const startGif = (
   trickBank: TrickBank = {} as TrickBank,
   trick: Trick = {} as Trick,
-  choices: string[] = [] as string[]
+  choices: string[] = [] as string[],
 ) => {
   // use type assertion to allow empty object to pass for first call
   const currentTrickBank = getCurrentTrickBank(trickBank);
   const correctTrick = getCorrectTrick(currentTrickBank, trick);
   const currentChoices = getCurrentChoices(correctTrick, choices);
-  const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [
-    ...getArgs(),
-    correctTrick.filepath
-  ]);
+  const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [...getArgs(), correctTrick.filepath]);
 
   // Creating this interface prevents the user from inputting early
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
   // Write out the data
@@ -88,7 +92,7 @@ const startGif = (
   // close stream, remove the prompt text and close rl interface
   taiProcess.on('close', async () => {
     removePromptText();
-    rl.close(); // close the interface to prevent the too many event listeners attached bug
+    rl.close();
     await guessGif(currentTrickBank, correctTrick, currentChoices);
   });
 };
