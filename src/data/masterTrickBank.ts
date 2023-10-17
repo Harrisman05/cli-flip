@@ -44,9 +44,9 @@ const masterTrickBank: TrickBank = {
     src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
   },
   switchLateHardflip: {
-    name: 'Late Hardflip',
+    name: 'Switch Late Hardflip',
     propName: 'switchLateHardflip',
-    filepath: `${tricksBasePath}jamie/late-hardflip.gif`,
+    filepath: `${tricksBasePath}jamie/switch-late-hardflip.gif`,
     skater: 'Jamie Griffin',
     stance: 'Regular',
     src: 'https://www.youtube.com/watch?v=tLET_hFcI7M',
