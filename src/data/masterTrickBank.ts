@@ -1,4 +1,4 @@
-import { TrickBank } from '../model/TrickBank';
+import { TrickBank } from '../model/TrickBank.js';
 
 const tricksBasePath = './assets/';
 

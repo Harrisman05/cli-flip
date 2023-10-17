@@ -1,6 +1,6 @@
-import { Trick } from '../model/Trick';
-import { TrickBank } from '../model/TrickBank';
-import getRandomTrick from './getRandomTrick';
+import { Trick } from '../model/Trick.js';
+import { TrickBank } from '../model/TrickBank.js';
+import getRandomTrick from './getRandomTrick.js';
 
 const getCorrectTrick = (currentTrickBank: TrickBank, trick: Trick) => {
   return Object.keys(trick).length ? trick : getRandomTrick(currentTrickBank);

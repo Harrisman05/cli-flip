@@ -1,5 +1,5 @@
-import { Trick } from './Trick';
+import { Trick } from './Trick.js';
 
 export interface TrickBank {
-    [key: string]: Trick;
+  [key: string]: Trick;
 }

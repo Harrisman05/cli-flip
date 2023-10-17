@@ -1,4 +1,4 @@
-import sleep from './sleep';
+import sleep from './sleep.js';
 
 const showRules = async () => {
   console.log('see if we sleep...');

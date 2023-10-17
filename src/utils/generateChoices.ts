@@ -1,6 +1,6 @@
-import { Trick } from '../model/Trick';
-import masterTrickBank from '../data/masterTrickBank';
-import getRandomTrick from './getRandomTrick';
+import { Trick } from '../model/Trick.js';
+import masterTrickBank from '../data/masterTrickBank.js';
+import getRandomTrick from './getRandomTrick.js';
 
 const generateChoices = (correctTrick: Trick) => {
   const randomTrickBank = structuredClone(masterTrickBank); // clone the master trickBank as this function directly mutates the object :( Want availablity to all tricks in the choice array so have to use master trickbank

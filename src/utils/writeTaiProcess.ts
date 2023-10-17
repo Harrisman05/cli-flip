@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { score } from '../model/Score';
+import { score } from '../model/Score.js';
 
 const writeTaiProcess = (choices: string[]) => {
   let textLogged = false;

@@ -16,7 +16,7 @@
 
 import { describe, beforeEach, expect } from '@jest/globals';
 
-import Score from '../../src/model/Score';
+import Score from '../../src/model/Score.js';
 
 describe('Score Class tests', () => {
   let scoreInstance: Score;

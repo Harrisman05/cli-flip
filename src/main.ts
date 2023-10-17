@@ -2,20 +2,21 @@
 
 import { spawn } from 'child_process';
 import readline from 'readline';
-import inquirer from 'inquirer';
+import select from '@inquirer/select';
+import confirm from '@inquirer/confirm';
 import chalk from 'chalk';
-import { TAI_BINARY_EXECUTABLE_FILEPATH } from './config/constants';
-import getArgs from './utils/getArgs';
-import writeTaiProcess from './utils/writeTaiProcess';
-import errorTaiProcess from './utils/errorTaiProcess';
-import removePromptText from './utils/removePromptText';
-import showRules from './utils/showRules';
-import { Trick } from './model/Trick';
-import { TrickBank } from './model/TrickBank';
-import getCurrentTrickBank from './utils/getCurrentTrickBank';
-import getCorrectTrick from './utils/getCorrectTrick';
-import getCurrentChoices from './utils/getCurrentChoices';
-import { score } from './model/Score';
+import { TAI_BINARY_EXECUTABLE_FILEPATH } from './config/constants.js';
+import getArgs from './utils/getArgs.js';
+import writeTaiProcess from './utils/writeTaiProcess.js';
+import errorTaiProcess from './utils/errorTaiProcess.js';
+import removePromptText from './utils/removePromptText.js';
+import showRules from './utils/showRules.js';
+import { Trick } from './model/Trick.js';
+import { TrickBank } from './model/TrickBank.js';
+import getCurrentTrickBank from './utils/getCurrentTrickBank.js';
+import getCorrectTrick from './utils/getCorrectTrick.js';
+import getCurrentChoices from './utils/getCurrentChoices.js';
+import { score } from './model/Score.js';
 
 const main = async () => {
   await startQuiz();
@@ -23,42 +24,37 @@ const main = async () => {
 
 const startQuiz = async () => {
   chalk.bgBlue(console.log('Welcome to the flip-tricks-ascii quiz!'));
-  await inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'continue',
-      message: 'Press Enter to start quiz',
-      default: true,
-    },
-  ]);
+  await confirm({ message: 'Continue?', default: true });
   await showRules();
   startGif();
 };
 
 const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choices: string[]) => {
-  const answer = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'trick',
-      message: 'Guess the trick! 🛹🤔',
-      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices],
-    },
-  ]);
+  const answer = await select({
+    message: 'Guess the trick! 🛹🤔',
+    choices: [
+      { value: `${chalk.dim('REPLAY GIF')}` },
+      { value: `${choices[0]}` },
+      { value: `${choices[1]}` },
+      { value: `${choices[2]}` },
+      { value: `${choices[3]}` },
+    ],
+  });
   console.log(
     `✅ - ${score.correctAnswers} | ❌ - ${score.incorrectAnswers} | ${score.currentQuestion}/${score.totalQuestions}`,
   );
 
-  if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
+  if (answer === `${chalk.dim('REPLAY GIF')}`) {
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank, correctTrick, choices);
-  } else if (answer.trick === correctTrick.name) {
+  } else if (answer === correctTrick.name) {
     console.log('CORRECT');
     score.addCorrectAnswer();
     score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName]; // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
-  } else if (answer.trick !== correctTrick.name) {
+  } else if (answer !== correctTrick.name) {
     console.log('WRONG');
     score.addIncorrectAnswer();
     score.nextQuestion();
