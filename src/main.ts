@@ -62,6 +62,8 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
     score.addCorrectAnswer();
     score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName]; // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
+    readline.moveCursor(process.stdout, 0, -2);
+    readline.clearLine(process.stdout, 0);
     await sleep(1000);
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
@@ -80,6 +82,8 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
     score.addIncorrectAnswer();
     score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName];
+    readline.moveCursor(process.stdout, 0, -2);
+    readline.clearLine(process.stdout, 0);
     await sleep(1000);
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
