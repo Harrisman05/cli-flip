@@ -16,6 +16,7 @@ import getCurrentTrickBank from './utils/getCurrentTrickBank';
 import getCorrectTrick from './utils/getCorrectTrick';
 import getCurrentChoices from './utils/getCurrentChoices';
 import { score } from './model/Score';
+import sleep from './utils/sleep';
 
 const main = async () => {
   await startQuiz();
@@ -44,25 +45,46 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
       choices: [`${chalk.dim('REPLAY GIF')}`, ...choices.map((choice) => chalk.yellow(choice))],
     },
   ]);
-  console.log(
-    `✅ - ${score.correctAnswers} | ❌ - ${score.incorrectAnswers} | ${score.currentQuestion}/${score.totalQuestions}`,
-  );
-
   if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank, correctTrick, choices);
-  } else if (answer.trick === correctTrick.name) {
-    console.log('CORRECT');
+  } else if (answer.trick === `${chalk.yellow(`${correctTrick.name}`)}`) {
+    console.log(
+      chalk.green(`
+     ____                         _   
+    / ___|___  _ __ _ __ ___  ___| |_ 
+   | |   / _ \\| '__| '__/ _ \\/ __| __|
+   | |__| (_) | |  | | |  __/ (__| |_ 
+    \\____\\___/|_|  |_|  \\___|/\\___|\\_|
+
+    `),
+    );
     score.addCorrectAnswer();
     score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName]; // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
+    readline.moveCursor(process.stdout, 0, -2);
+    readline.clearLine(process.stdout, 0);
+    await sleep(1000);
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
-  } else if (answer.trick !== correctTrick.name) {
-    console.log('WRONG');
+  } else if (answer.trick !== `${chalk.yellow(`${correctTrick.name}`)}`) {
+    console.log(
+      chalk.red(`
+    __        __                     
+    \\ \\      / / __ ___  _ __   __ _ 
+     \\ \\ /\\ / / '__/ _ \\| '_ \\ / _  |
+      \\ V  V /| | | (_) | | | | (_| |
+       \\_/\\_/ |_|  \\___/|_| |_|\\__, |
+                               |___/ 
+    
+    `),
+    );
     score.addIncorrectAnswer();
     score.nextQuestion();
     delete currrentTrickBank[correctTrick.propName];
+    readline.moveCursor(process.stdout, 0, -2);
+    readline.clearLine(process.stdout, 0);
+    await sleep(1000);
     process.stdout.write('\x1B[0J');
     startGif(currrentTrickBank);
   }

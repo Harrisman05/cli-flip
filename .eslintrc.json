@@ -27,6 +27,7 @@
         "no-irregular-whitespace": "error",
         "no-unused-vars": "off",
         "require-await": "error",
-        "spaced-comment": [ "error", "always", { "markers": [ "/", "*" ] } ]
+        "spaced-comment": [ "error", "always", { "markers": [ "/", "*" ] } ],
+        "no-useless-escape": "off"
     }
 }
