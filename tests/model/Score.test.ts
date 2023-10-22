@@ -1,19 +1,3 @@
-/*
-
-- Store application state...
-- array of current available tricks
-- method to remove tricks that have been already used
-- number of current question 
-- numbers of questions remaining
-- number of total questions
-- number of correct answers
-- number of incorrect answers
-- Increase correct answer score
-- Increase incorrect answer score
-- Increase number of current question
-
-*/
-
 import { describe, beforeEach, expect } from '@jest/globals';
 
 import Score from '../../src/model/Score';
@@ -35,24 +19,24 @@ describe('Score Class tests', () => {
   });
 
   it('should contain first question in quiz', () => {
-    expect(scoreInstance.currentQuestion).toEqual(1);
+    expect(scoreInstance.currentQuestion).toEqual(0);
   });
 
   it('should contain next question in quiz', () => {
+    expect(scoreInstance.currentQuestion).toEqual(0);
+    expect(scoreInstance.nextQuestion()).toEqual(1);
     expect(scoreInstance.currentQuestion).toEqual(1);
-    expect(scoreInstance.nextQuestion()).toEqual(2);
-    expect(scoreInstance.currentQuestion).toEqual(2);
   });
 
   it('should contain the remaining questions in quiz', () => {
-    // Simulate answering 4 questions in the quiz (start on q1)
+    // Simulate answering 3 questions in the quiz (start on 0)
     scoreInstance.nextQuestion();
     scoreInstance.nextQuestion();
     scoreInstance.nextQuestion();
 
     // Start with 20 questions and 4 questions answered in total, so 16 remain
-    expect(scoreInstance.currentQuestion).toEqual(4);
-    expect(scoreInstance.questionsRemaining).toEqual(16);
+    expect(scoreInstance.currentQuestion).toEqual(3);
+    expect(scoreInstance.questionsRemaining).toEqual(17);
   });
 
   it('should contain number of correct answers', () => {
