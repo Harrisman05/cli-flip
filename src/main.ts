@@ -11,12 +11,13 @@ import errorTaiProcess from './utils/errorTaiProcess';
 import removePromptText from './utils/removePromptText';
 import showRules from './utils/showRules';
 import { Trick } from './model/Trick';
-import { TrickBank } from './model/TrickBank';
+import { Tricks } from './model/Tricks';
 import getCurrentTrickBank from './utils/getCurrentTrickBank';
 import getCorrectTrick from './utils/getCorrectTrick';
 import getCurrentChoices from './utils/getCurrentChoices';
 import { score } from './model/Score';
 import sleep from './utils/sleep';
+import { TrickBank } from './model/TrickBank';
 
 const main = async () => {
   await startQuiz();
@@ -36,7 +37,7 @@ const startQuiz = async () => {
   startGif();
 };
 
-const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choices: string[]) => {
+const guessGif = async (quizTricks: Tricks, correctTrick: Trick, choices: string[]) => {
   const answer = await inquirer.prompt([
     {
       type: 'list',
@@ -47,7 +48,7 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
   ]);
   if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
     process.stdout.write('\x1B[0J');
-    startGif(currrentTrickBank, correctTrick, choices);
+    startGif(quizTricks, correctTrick, choices);
   } else if (answer.trick === `${chalk.yellow(`${correctTrick.name}`)}`) {
     console.log(
       chalk.green(`
@@ -61,12 +62,12 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
     );
     score.addCorrectAnswer();
     score.nextQuestion();
-    delete currrentTrickBank[correctTrick.propName]; // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
+    const updatedQuizTricks = TrickBank.deleteTrick(quizTricks, correctTrick); // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
     readline.moveCursor(process.stdout, 0, -2);
     readline.clearLine(process.stdout, 0);
     await sleep(1000);
     process.stdout.write('\x1B[0J');
-    startGif(currrentTrickBank);
+    startGif(updatedQuizTricks);
   } else if (answer.trick !== `${chalk.yellow(`${correctTrick.name}`)}`) {
     console.log(
       chalk.red(`
@@ -81,23 +82,23 @@ const guessGif = async (currrentTrickBank: TrickBank, correctTrick: Trick, choic
     );
     score.addIncorrectAnswer();
     score.nextQuestion();
-    delete currrentTrickBank[correctTrick.propName];
+    const updatedQuizTricks = TrickBank.deleteTrick(quizTricks, correctTrick); // delete the just answered trick name to remove it from next possible set of correct tricks, preventing question duplication
     readline.moveCursor(process.stdout, 0, -2);
     readline.clearLine(process.stdout, 0);
     await sleep(1000);
     process.stdout.write('\x1B[0J');
-    startGif(currrentTrickBank);
+    startGif(updatedQuizTricks);
   }
 };
 
 const startGif = (
-  trickBank: TrickBank = {} as TrickBank,
+  quizTricks: Tricks = {} as Tricks,
   trick: Trick = {} as Trick,
   choices: string[] = [] as string[],
 ) => {
   // use type assertion to allow empty object to pass for first call
-  const currentTrickBank = getCurrentTrickBank(trickBank);
-  const correctTrick = getCorrectTrick(currentTrickBank, trick);
+  const currentQuizTricks = getCurrentTrickBank(quizTricks);
+  const correctTrick = getCorrectTrick(currentQuizTricks, trick);
   const currentChoices = getCurrentChoices(correctTrick, choices);
   const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [...getArgs(), correctTrick.filepath]);
 
@@ -115,7 +116,7 @@ const startGif = (
   taiProcess.on('close', async () => {
     removePromptText();
     rl.close();
-    await guessGif(currentTrickBank, correctTrick, currentChoices);
+    await guessGif(currentQuizTricks, correctTrick, currentChoices);
   });
 };
 

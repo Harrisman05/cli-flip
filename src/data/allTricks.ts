@@ -1,8 +1,8 @@
-import { TrickBank } from '../model/TrickBank';
+import { Tricks } from '../model/Tricks';
 
 const tricksBasePath = './assets/';
 
-const masterTrickBank: TrickBank = {
+const allTricks: Tricks = {
   hardflip: {
     name: 'Hardflip',
     propName: 'hardflip',
@@ -85,4 +85,4 @@ const masterTrickBank: TrickBank = {
   },
 };
 
-export default masterTrickBank;
+export default allTricks;

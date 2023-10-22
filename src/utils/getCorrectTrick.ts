@@ -1,9 +1,9 @@
 import { Trick } from '../model/Trick';
+import { Tricks } from '../model/Tricks';
 import { TrickBank } from '../model/TrickBank';
-import getRandomTrick from './getRandomTrick';
 
-const getCorrectTrick = (currentTrickBank: TrickBank, trick: Trick) => {
-  return Object.keys(trick).length ? trick : getRandomTrick(currentTrickBank);
+const getCorrectTrick = (quizTricks: Tricks, trick: Trick) => {
+  return Object.keys(trick).length ? trick : TrickBank.getRandomTrick(quizTricks);
 };
 
 export default getCorrectTrick;
