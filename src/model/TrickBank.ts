@@ -1,4 +1,4 @@
-import allTricks from '../data/allTricks';
+import extractQuizTricks from '../utils/trickLogic/extractQuizTricks';
 import { Trick } from './Trick';
 import { Tricks } from './Tricks';
 
@@ -6,7 +6,10 @@ export class TrickBank {
   public trickbank: Tricks = {};
 
   constructor() {
-    for (const [key, value] of Object.entries(allTricks)) {
+    // get the quiz tricks from the master bank (some tricks in master bank are empty, so this extraction is needed)
+    const quizTricks = extractQuizTricks();
+
+    for (const [key, value] of Object.entries(quizTricks)) {
       // this loops through json object to add this class wrapper to it
       this.trickbank[key] = value;
     }
