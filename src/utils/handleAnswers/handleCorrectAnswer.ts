@@ -1,6 +1,5 @@
 import { Trick } from '../../model/Trick';
 import { Tricks } from '../../model/Tricks';
-import clearAllOutput from '../cleanTerminal/clearAllOutput';
 import sleep from '../sleep';
 import displayCorrectAscii from '../displayText/displayCorrectAscii';
 import updateCorrectScore from '../score/updateCorrectScore';
@@ -12,7 +11,6 @@ const handleCorrectAnswer = async (quizTricks: Tricks, correctTrick: Trick): Pro
   updateCorrectScore();
   clearScoreboard();
   await sleep(2000);
-  clearAllOutput();
   prepareNextGif(quizTricks, correctTrick);
 };
 
