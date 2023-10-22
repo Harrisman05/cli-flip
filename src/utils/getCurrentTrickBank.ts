@@ -1,10 +1,8 @@
+import { Tricks } from '../model/Tricks';
 import { TrickBank } from '../model/TrickBank';
-import masterTrickBank from '../data/masterTrickBank';
 
-const getCurrentTrickBank = (trickBank: TrickBank) => {
-  return Object.keys(trickBank).length
-    ? trickBank
-    : structuredClone(masterTrickBank);
+const getCurrentTrickBank = (quizTricks: Tricks) => {
+  return Object.keys(quizTricks).length ? quizTricks : new TrickBank().trickbank;
 };
 
 export default getCurrentTrickBank;
