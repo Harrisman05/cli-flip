@@ -1,9 +1,9 @@
 import chalk from 'chalk';
-import { score } from '../model/Score';
+import { score } from '../../model/Score';
 
-const writeTaiProcess = (choices: string[], stance: string) => {
+const writeGifProcess = (choices: string[], stance: string): ((data: string) => void) => {
   let textLogged = false;
-  return (data: string) => {
+  return (data: string): void => {
     process.stdout.write(data);
     if (!textLogged) {
       process.stdout.write(`                                           ${chalk.green('Playing gif...')}\n`);
@@ -29,4 +29,4 @@ const writeTaiProcess = (choices: string[], stance: string) => {
   };
 };
 
-export default writeTaiProcess;
+export default writeGifProcess;

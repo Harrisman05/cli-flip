@@ -1,6 +1,6 @@
-import { TAI_SCRIPT_ARGUMENTS } from '../config/constants';
+import { TAI_SCRIPT_ARGUMENTS } from '../../config/constants';
 
-const getArgs = () => {
+const getProcessArgs = (): TAI_SCRIPT_ARGUMENTS[] => {
   return [
     TAI_SCRIPT_ARGUMENTS.dither,
     TAI_SCRIPT_ARGUMENTS.ditherScale,
@@ -9,8 +9,8 @@ const getArgs = () => {
     TAI_SCRIPT_ARGUMENTS.scaleValue,
     TAI_SCRIPT_ARGUMENTS.sleep,
     TAI_SCRIPT_ARGUMENTS.sleepValue,
-    TAI_SCRIPT_ARGUMENTS.once
+    TAI_SCRIPT_ARGUMENTS.once,
   ];
 };
 
-export default getArgs;
+export default getProcessArgs;

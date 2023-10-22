@@ -12,13 +12,15 @@ export class TrickBank {
     }
   }
 
+  // these static methods could be utils, but wanted to try and use a static method. Also, static method links the functions to this class more closely, otherwise they are just floating util functions
+
   public static getRandomTrick(trickbank: Tricks): Trick {
     const randomTrick = trickbank[Object.keys(trickbank)[Math.floor(Math.random() * Object.keys(trickbank).length)]];
     return randomTrick;
   }
 
   public static deleteTrick(trickbank: Tricks, trick: Trick): Tricks {
-    const trickbankClone = structuredClone(trickbank);
+    const trickbankClone = structuredClone(trickbank); // make a clone as it's better practice? Not sure if this is better or not...
     delete trickbankClone[trick.propName];
     return trickbankClone;
   }

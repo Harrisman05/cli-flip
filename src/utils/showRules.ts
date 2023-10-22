@@ -1,6 +1,6 @@
 import sleep from './sleep';
 
-const showRules = async () => {
+const showRules = async (): Promise<void> => {
   console.log('see if we sleep...');
   await sleep(100);
   console.log('2nd one');
