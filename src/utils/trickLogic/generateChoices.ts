@@ -1,7 +1,7 @@
-import { Trick } from '../model/Trick';
-import { TrickBank } from '../model/TrickBank';
+import { Trick } from '../../model/Trick';
+import { TrickBank } from '../../model/TrickBank';
 
-const generateChoices = (correctTrick: Trick) => {
+const generateChoices = (correctTrick: Trick): string[] => {
   let choicesTricks = new TrickBank().trickbank;
 
   const blankChoices = ['_', '_', '_', '_'];
