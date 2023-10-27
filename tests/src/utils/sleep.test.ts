@@ -2,11 +2,8 @@ import sleep from '../../../src/utils/sleep';
 
 describe('sleep test suites', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
     jest.resetAllMocks();
+    jest.useFakeTimers();
   });
 
   it('should call setTimeout with miliseconds parameter passed in', async () => {

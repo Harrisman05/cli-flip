@@ -2,7 +2,7 @@ import showRules from '../../../src/utils/showRules';
 import * as sleep from '../../../src/utils/sleep';
 
 describe('showRules test suites', () => {
-  afterEach(() => {
+  beforeEach(() => {
     jest.resetAllMocks();
   });
 

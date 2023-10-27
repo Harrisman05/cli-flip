@@ -5,7 +5,7 @@ import * as startGif from '../../src/utils/quizControl/startGif';
 
 describe('Main test suites', () => {
   describe('main test', () => {
-    afterEach(() => {
+    beforeEach(() => {
       jest.resetAllMocks();
     });
 
