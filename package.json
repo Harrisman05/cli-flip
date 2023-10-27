@@ -7,6 +7,7 @@
         "build": "tsc",
         "start": "node ./dist/main.js",
         "test": "jest",
+        "coverage": "jest --coverage",
         "lint": "eslint . --fix && prettier . --write",
         "prepare": "husky install"
     },
