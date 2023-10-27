@@ -5,11 +5,11 @@ import chalk from 'chalk';
 import showRules from './utils/showRules';
 import startGif from './utils/quizControl/startGif';
 
-const main = async (): Promise<void> => {
+export const main = async (): Promise<void> => {
   await startQuiz();
 };
 
-const startQuiz = async (): Promise<void> => {
+export const startQuiz = async (): Promise<void> => {
   chalk.bgBlue(console.log('Welcome to the flip-tricks-ascii quiz!'));
   await inquirer.prompt([
     {
@@ -23,4 +23,8 @@ const startQuiz = async (): Promise<void> => {
   startGif();
 };
 
-main();
+/* istanbul ignore next */
+if (require.main === module) {
+  // To prevents test contamination, only call the main function if this script is ran directly.
+  main();
+}
