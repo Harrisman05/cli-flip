@@ -41,6 +41,15 @@ export const MOCK_QUIZ_TRICKS: Tricks = {
 };
 
 export const MOCK_TRICK: Trick = {
+  filepath: './assets/masterTrickStore/hardflips/hardflip.gif',
+  name: 'Hardflip',
+  propName: 'hardflip',
+  skater: 'Louie Lopez',
+  src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
+  stance: 'Goofy',
+};
+
+export const MOCK_CORRECT_TRICK_AS_FAKIE_KICKFLIP: Trick = {
   filepath: './assets/masterTrickStore/kickflips/fakie-kickflip.gif',
   name: 'Fakie Kickflip',
   propName: 'fakieKickflip',
@@ -49,9 +58,18 @@ export const MOCK_TRICK: Trick = {
   stance: 'Regular',
 };
 
+export const MOCK_RANDOM_TRICK_AS_HEELFLIP: Trick = {
+  filepath: './assets/masterTrickStore/heelflips/heelflip.gif',
+  name: 'Heelflip',
+  propName: 'heelflip',
+  skater: 'TJ Rogers',
+  src: 'https://www.youtube.com/watch?v=1bWni8NZ-gk',
+  stance: 'Regular',
+};
+
 export const MOCK_CHOICES = ['Double Hardflip', 'Switch Kickflip', 'Varial Heelflip', 'Fakie Double Dolphin Flip'];
 
-export const MOCK_TRICKBANK = {
+export const MOCK_TRICKBANK: Tricks = {
   switchKickflip: {
     name: 'Switch Kickflip',
     propName: 'switchKickflip',
