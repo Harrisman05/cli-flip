@@ -3,7 +3,7 @@ import { Trick } from './Trick';
 import { Tricks } from './Tricks';
 
 export class TrickBank {
-  public trickbank: Tricks = {};
+  private _trickbank: Tricks = {};
 
   constructor() {
     // get the quiz tricks from the master bank (some tricks in master bank are empty, so this extraction is needed)
@@ -11,8 +11,12 @@ export class TrickBank {
 
     for (const [key, value] of Object.entries(quizTricks)) {
       // this loops through json object to add this class wrapper to it
-      this.trickbank[key] = value;
+      this._trickbank[key] = value;
     }
+  }
+
+  get trickbank(): Tricks {
+    return this._trickbank;
   }
 
   // these static methods could be utils, but wanted to try and use a static method. Also, static method links the functions to this class more closely, otherwise they are just floating util functions
