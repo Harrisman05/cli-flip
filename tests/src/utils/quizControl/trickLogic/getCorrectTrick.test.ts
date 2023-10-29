@@ -12,13 +12,13 @@ describe('getCorrectTrickBank test suites', () => {
     jest.resetAllMocks();
   });
 
-  it('should return the trick if trick has properties', () => {
+  it('should return trick passed in if trick has properties', () => {
     const correctTrick = getCorrectTrick(MOCK_EMPTY_QUIZ_TRICKS, MOCK_TRICK);
 
     expect(correctTrick).toEqual(MOCK_TRICK);
   });
 
-  it('should return a random trick if trick has no properties', () => {
+  it('should return a random trick if trick passed in has no properties', () => {
     const getRandomTrickSpy = jest.spyOn(Trickbank.TrickBank, 'getRandomTrick').mockReturnValue(MOCK_TRICK);
 
     const correctTrick = getCorrectTrick(MOCK_QUIZ_TRICKS, MOCK_EMPTY_TRICK);

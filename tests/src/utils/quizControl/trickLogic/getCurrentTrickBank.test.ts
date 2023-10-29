@@ -18,13 +18,13 @@ describe('getCurrentTrickBank test suites', () => {
     jest.resetAllMocks();
   });
 
-  it('should return the quizTricks if quizTricks has properties', () => {
+  it('should return quizTricks passed in if quizTricks has properties', () => {
     const currentTrickbank = getCurrentTrickBank(MOCK_QUIZ_TRICKS);
 
     expect(currentTrickbank).toEqual(MOCK_QUIZ_TRICKS);
   });
 
-  it('should return a new trickbank if quizTricks has no properties', () => {
+  it('should return a new trickbank if quizTricks passed in has no properties', () => {
     const currentTrickbank = getCurrentTrickBank(MOCK_EMPTY_QUIZ_TRICKS);
 
     expect(currentTrickbank).toEqual(MOCK_TRICKBANK);
