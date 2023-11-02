@@ -1,7 +1,7 @@
-import * as getCurrentTrickBank from '../../../../../src/utils/trickLogic/getCurrentTrickBank';
-import * as getCorrectTrick from '../../../../../src/utils/trickLogic/getCorrectTrick';
-import * as getCurrentChoices from '../../../../../src/utils/trickLogic/getCurrentChoices';
-import generateTricks from '../../../../../src/utils/trickLogic/generateTricks';
+import * as getCurrentTrickBank from '../../../../src/utils/trickLogic/getCurrentTrickBank';
+import * as getCorrectTrick from '../../../../src/utils/trickLogic/getCorrectTrick';
+import * as getCurrentChoices from '../../../../src/utils/trickLogic/getCurrentChoices';
+import generateTricks from '../../../../src/utils/trickLogic/generateTricks';
 
 import {
   MOCK_EMPTY_QUIZ_TRICKS,
@@ -10,7 +10,7 @@ import {
   MOCK_QUIZ_TRICKS,
   MOCK_TRICK,
   MOCK_CHOICES,
-} from '../../../../mocks/quizData.mock';
+} from '../../../mocks/quizData.mock';
 
 describe('generateTricks test suites', () => {
   beforeEach(() => {

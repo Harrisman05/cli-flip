@@ -1,11 +1,6 @@
-import getCorrectTrick from '../../../../../src/utils/trickLogic/getCorrectTrick';
-import {
-  MOCK_EMPTY_QUIZ_TRICKS,
-  MOCK_EMPTY_TRICK,
-  MOCK_QUIZ_TRICKS,
-  MOCK_TRICK,
-} from '../../../../mocks/quizData.mock';
-import * as Trickbank from '../../../../../src/model/TrickBank';
+import getCorrectTrick from '../../../../src/utils/trickLogic/getCorrectTrick';
+import { MOCK_EMPTY_QUIZ_TRICKS, MOCK_EMPTY_TRICK, MOCK_QUIZ_TRICKS, MOCK_TRICK } from '../../../mocks/quizData.mock';
+import * as Trickbank from '../../../../src/model/TrickBank';
 
 describe('getCorrectTrickBank test suites', () => {
   beforeEach(() => {

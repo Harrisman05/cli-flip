@@ -1,6 +1,6 @@
-import getCurrentChoices from '../../../../../src/utils/trickLogic/getCurrentChoices';
-import { MOCK_CHOICES, MOCK_EMPTY_CHOICES, MOCK_EMPTY_TRICK, MOCK_TRICK } from '../../../../mocks/quizData.mock';
-import * as generateChoices from '../../../../../src/utils/trickLogic/generateChoices';
+import getCurrentChoices from '../../../../src/utils/trickLogic/getCurrentChoices';
+import { MOCK_CHOICES, MOCK_EMPTY_CHOICES, MOCK_EMPTY_TRICK, MOCK_TRICK } from '../../../mocks/quizData.mock';
+import * as generateChoices from '../../../../src/utils/trickLogic/generateChoices';
 
 describe('getCurrentChoices test suites', () => {
   beforeEach(() => {

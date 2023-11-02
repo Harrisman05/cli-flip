@@ -1,9 +1,9 @@
-import { Tricks } from '../../../../../src/model/Tricks';
-import getCurrentTrickBank from '../../../../../src/utils/trickLogic/getCurrentTrickBank';
+import { Tricks } from '../../../../src/model/Tricks';
+import getCurrentTrickBank from '../../../../src/utils/trickLogic/getCurrentTrickBank';
 
-import { MOCK_EMPTY_QUIZ_TRICKS, MOCK_QUIZ_TRICKS, MOCK_TRICKBANK } from '../../../../mocks/quizData.mock';
+import { MOCK_EMPTY_QUIZ_TRICKS, MOCK_QUIZ_TRICKS, MOCK_TRICKBANK } from '../../../mocks/quizData.mock';
 
-jest.mock('../../../../../src/model/TrickBank', () => {
+jest.mock('../../../../src/model/TrickBank', () => {
   return {
     TrickBank: class MockTrickBank {
       get trickbank(): Tricks {

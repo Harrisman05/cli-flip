@@ -2,13 +2,13 @@ import {
   MOCK_RANDOM_TRICK_AS_HEELFLIP,
   MOCK_CORRECT_TRICK_AS_FAKIE_KICKFLIP,
   MOCK_TRICKBANK,
-} from '../../../../mocks/quizData.mock';
-import generateChoices from '../../../../../src/utils/trickLogic/generateChoices';
-import { Tricks } from '../../../../../src/model/Tricks';
-import { TrickBank } from '../../../../../src/model/TrickBank';
-import { Trick } from '../../../../../src/model/Trick';
+} from '../../../mocks/quizData.mock';
+import generateChoices from '../../../../src/utils/trickLogic/generateChoices';
+import { Tricks } from '../../../../src/model/Tricks';
+import { TrickBank } from '../../../../src/model/TrickBank';
+import { Trick } from '../../../../src/model/Trick';
 
-jest.mock('../../../../../src/model/TrickBank', () => {
+jest.mock('../../../../src/model/TrickBank', () => {
   return {
     TrickBank: class MockTrickBank {
       private _trickbank: Tricks;
