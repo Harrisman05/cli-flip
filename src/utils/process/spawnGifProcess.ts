@@ -11,7 +11,6 @@ const spawnGifProcess = (currentQuizTricks: Tricks, correctTrick: Trick, current
   // Creating this interface prevents the user from inputting early
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout,
   });
 
   const taiProcess = spawn(TAI_BINARY_EXECUTABLE_FILEPATH, [...getProcessArgs(), correctTrick.filepath]);
