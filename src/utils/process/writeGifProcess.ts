@@ -5,7 +5,9 @@ import writeData from './writeData';
 
 const writeGifProcess = (choices: string[], stance: string): ((data: string) => void) => {
   let textWrittenOnce = false;
-  return (data: string): void => {
+
+  // defining callback here and returning it makes this more testable
+  const dataCallback = (data: string): void => {
     writeData(data);
     if (!textWrittenOnce) {
       writePlayingStatus();
@@ -14,6 +16,8 @@ const writeGifProcess = (choices: string[], stance: string): ((data: string) => 
     }
     textWrittenOnce = true;
   };
+
+  return dataCallback;
 };
 
 export default writeGifProcess;
