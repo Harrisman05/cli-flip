@@ -4,9 +4,10 @@ import writeAnswerPromptReplica from './writeAnswerPromptReplica';
 import writeData from './writeData';
 
 const writeGifProcess = (choices: string[], stance: string): ((data: string) => void) => {
+  // textWrittenOnce creates a closure with the callback, as callback can access variables in previous functions scope
   let textWrittenOnce = false;
 
-  // defining callback here and returning it makes this more testable
+  // defining callback here and returning it makes this more readable and testable
   const dataCallback = (data: string): void => {
     writeData(data);
     if (!textWrittenOnce) {
