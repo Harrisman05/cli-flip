@@ -7,20 +7,21 @@ import handleCorrectAnswer from '../handleAnswers/handleCorrectAnswer';
 import handleWrongAnswer from '../handleAnswers/handleWrongAnswer';
 
 const guessGif = async (quizTricks: Tricks, correctTrick: Trick, choices: string[]): Promise<void> => {
+  const replayChoice = `${chalk.dim('REPLAY GIF')}`;
   const answer = await inquirer.prompt([
     {
       type: 'list',
-      name: 'trick',
+      name: 'choice',
       message: 'Guess the trick! 🛹🤔',
-      choices: [`${chalk.dim('REPLAY GIF')}`, ...choices.map((choice) => chalk.yellow(choice))],
+      choices: [replayChoice, ...choices.map((choice) => chalk.yellow(choice))],
     },
   ]);
 
-  if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
+  if (answer.choice === replayChoice) {
     handleReplayGif(quizTricks, correctTrick, choices);
-  } else if (answer.trick === `${chalk.yellow(correctTrick.name)}`) {
+  } else if (answer.choice === `${chalk.yellow(correctTrick.name)}`) {
     handleCorrectAnswer(quizTricks, correctTrick);
-  } else if (answer.trick !== `${chalk.yellow(correctTrick.name)}`) {
+  } else if (answer.choice !== `${chalk.yellow(correctTrick.name)}`) {
     handleWrongAnswer(quizTricks, correctTrick);
   }
 };
