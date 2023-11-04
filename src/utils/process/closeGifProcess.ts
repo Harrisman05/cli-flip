@@ -1,11 +1,11 @@
 import { Trick } from '../../model/Trick';
 import { Tricks } from '../../model/Tricks';
-import removePromptText from '../cleanTerminal/removePromptText';
+import removePlayingStatusText from '../cleanTerminal/removePlayingStatusText';
 import guessGif from '../quizControl/guessGif';
 
 const closeGifProcess = (currentQuizTricks: Tricks, correctTrick: Trick, currentChoices: string[]) => {
   return (): void => {
-    removePromptText();
+    removePlayingStatusText();
     guessGif(currentQuizTricks, correctTrick, currentChoices);
   };
 };
