@@ -9,7 +9,7 @@ import closeGifProcess from './closeGifProcess';
 
 const spawnGifProcess = (currentQuizTricks: Tricks, correctTrick: Trick, currentChoices: string[]): void => {
   // Creating this interface prevents the user from inputting early
-  const rl = readline.createInterface({
+  readline.createInterface({
     input: process.stdin,
   });
 
@@ -18,7 +18,7 @@ const spawnGifProcess = (currentQuizTricks: Tricks, correctTrick: Trick, current
   taiProcess.stdout.on('data', writeGifProcess(currentChoices, correctTrick.stance)); // horrible, but this gets an extra parameters into the writeTaiProcess callback
 
   // close stream, remove the prompt text and close rl interface
-  taiProcess.on('close', closeGifProcess(currentQuizTricks, correctTrick, currentChoices, rl));
+  taiProcess.on('close', closeGifProcess(currentQuizTricks, correctTrick, currentChoices));
 };
 
 export default spawnGifProcess;

@@ -8,7 +8,6 @@ import * as closeGifProcess from '../../../../src/utils/process/closeGifProcess'
 import readline from 'readline';
 import { MOCK_CHOICES, MOCK_QUIZ_TRICKS, MOCK_TRICK } from '../../../mocks/quizData.mock';
 import { MOCK_TAI_BINARY_EXECUTABLE_FILEPATH, MOCK_TAI_SCRIPT_ARGUMENTS } from '../../../mocks/constants.mock';
-import { MOCK_READLINE_INTERFACE } from '../../../mocks/node.mock';
 
 // Module mock child_process to override it's default functionality
 jest.mock('child_process');
@@ -26,7 +25,7 @@ describe('spawnGifProcess test suites', () => {
 
     // Set-up spies on dependencies getting called, inside beforeEach hook so they can be used across multiple tests and do not break the implementation after running once.
 
-    readlineSpy = jest.spyOn(readline, 'createInterface').mockImplementation(() => MOCK_READLINE_INTERFACE);
+    readlineSpy = jest.spyOn(readline, 'createInterface').mockImplementation(() => null as any);
     writeGifProcessSpy = jest.spyOn(writeGifProcess, 'default').mockImplementation(() => jest.fn());
     getProcessArgsSpy = jest.spyOn(getProcessArgs, 'default').mockImplementation(() => MOCK_TAI_SCRIPT_ARGUMENTS);
     closeGifProcessSpy = jest.spyOn(closeGifProcess, 'default').mockImplementation(() => jest.fn());
@@ -81,11 +80,6 @@ describe('spawnGifProcess test suites', () => {
     spawnGifProcess(MOCK_QUIZ_TRICKS, MOCK_TRICK, MOCK_CHOICES);
 
     expect(closeGifProcessSpy).toHaveBeenCalledTimes(1);
-    expect(closeGifProcessSpy).toHaveBeenCalledWith(
-      MOCK_QUIZ_TRICKS,
-      MOCK_TRICK,
-      MOCK_CHOICES,
-      MOCK_READLINE_INTERFACE,
-    );
+    expect(closeGifProcessSpy).toHaveBeenCalledWith(MOCK_QUIZ_TRICKS, MOCK_TRICK, MOCK_CHOICES);
   });
 });
