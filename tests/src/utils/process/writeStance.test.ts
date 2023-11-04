@@ -7,7 +7,7 @@ describe('writeStance test suites', () => {
   });
 
   it('should call process.stdout.write once with string containing stance', () => {
-    const mockWrite = jest.spyOn(process.stdout, 'write');
+    const mockWrite = jest.spyOn(process.stdout, 'write').mockImplementation(() => null as any);
     writeStance(MOCK_TRICK.stance);
     expect(mockWrite).toHaveBeenCalledTimes(1);
     expect(mockWrite).toHaveBeenCalledWith(expect.stringContaining(MOCK_TRICK.stance));

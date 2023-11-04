@@ -6,7 +6,7 @@ describe('writePlayingStatus test suites', () => {
   });
 
   it('should call process.stdout.write once with string', () => {
-    const mockWrite = jest.spyOn(process.stdout, 'write');
+    const mockWrite = jest.spyOn(process.stdout, 'write').mockImplementation(() => null as any);
     writePlayingStatus();
     expect(mockWrite).toHaveBeenCalledTimes(1);
     expect(mockWrite).toHaveBeenCalledWith(expect.any(String));

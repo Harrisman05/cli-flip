@@ -6,7 +6,7 @@ describe('writeData test suites', () => {
   });
 
   it('should call process.stdout.write once with correct parameter', () => {
-    const mockWrite = jest.spyOn(process.stdout, 'write');
+    const mockWrite = jest.spyOn(process.stdout, 'write').mockImplementation(() => null as any);
     writeData('data');
     expect(mockWrite).toHaveBeenCalledTimes(1);
     expect(mockWrite).toHaveBeenCalledWith('data');
