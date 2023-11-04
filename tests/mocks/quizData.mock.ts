@@ -166,3 +166,22 @@ export const MOCK_REPLAY_GIF_CHOICE = { choice: `${chalk.dim('REPLAY GIF')}` };
 export const MOCK_CORRECT_CHOICE_ANSWER = { choice: `${chalk.yellow(MOCK_TRICK.name)}` };
 
 export const MOCK_WRONG_CHOICE_ANSWER = { choice: `${chalk.yellow(MOCK_CHOICES[3])}` };
+
+export const MOCK_EXTRACTED_QUIZ_TRICKS = {
+  fakieKickflip: {
+    filepath: '$./assets/masterTrickStore/kickflips/fakie-kickflip.gif',
+    name: 'Fakie Kickflip',
+    propName: 'fakieKickflip',
+    skater: 'John Chyk',
+    src: 'https://www.youtube.com/watch?v=1bWni8NZ-gk',
+    stance: 'Regular',
+  },
+  switchKickflip: {
+    filepath: './assets/masterTrickStore/kickflips/switch-kickflip.gif',
+    name: 'Switch Kickflip',
+    propName: 'switchKickflip',
+    skater: 'Louie Lopez',
+    src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
+    stance: 'Goofy',
+  },
+};
