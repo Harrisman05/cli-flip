@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-const displayCorrectTrickAscii = (): void => {
+const displayCorrectAscii = (): void => {
   console.log(
     chalk.green(`
    ____                         _   
@@ -13,4 +13,4 @@ const displayCorrectTrickAscii = (): void => {
   );
 };
 
-export default displayCorrectTrickAscii;
+export default displayCorrectAscii;

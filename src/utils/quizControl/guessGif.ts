@@ -2,9 +2,9 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { Trick } from '../../model/Trick';
 import { Tricks } from '../../model/Tricks';
-import handleReplayGif from '../handleAnswers/handleReplayGif';
-import handleCorrectAnswer from '../handleAnswers/handleCorrectAnswer';
-import handleWrongAnswer from '../handleAnswers/handleWrongAnswer';
+import handleReplayGif from '../handleChoice/handleReplayGif';
+import handleCorrectAnswer from '../handleChoice/handleCorrectAnswer';
+import handleWrongAnswer from '../handleChoice/handleWrongAnswer';
 
 const guessGif = async (quizTricks: Tricks, correctTrick: Trick, choices: string[]): Promise<void> => {
   const replayChoice = `${chalk.dim('REPLAY GIF')}`;

@@ -1,7 +1,7 @@
 import guessGif from '../../../../src/utils/quizControl/guessGif';
-import * as handleReplayGif from '../../../../src/utils/handleAnswers/handleReplayGif';
-import * as handleCorrectAnswer from '../../../../src/utils/handleAnswers/handleCorrectAnswer';
-import * as handleWrongAnswer from '../../../../src/utils/handleAnswers/handleWrongAnswer';
+import * as handleReplayGif from '../../../../src/utils/handleChoice/handleReplayGif';
+import * as handleCorrectAnswer from '../../../../src/utils/handleChoice/handleCorrectAnswer';
+import * as handleWrongAnswer from '../../../../src/utils/handleChoice/handleWrongAnswer';
 import {
   MOCK_QUIZ_TRICKS,
   MOCK_TRICK,
