@@ -3,8 +3,8 @@ import { MOCK_QUIZ_TRICKS, MOCK_TRICK, MOCK_CHOICES } from '../../../mocks/quizD
 import * as removePlayStatusText from '../../../../src/utils/cleanTerminal/removePlayingStatusText';
 import * as guessGif from '../../../../src/utils/quizControl/guessGif';
 
-const removePlayingStatusTextSpy = jest.spyOn(removePlayStatusText, 'default');
-const guessGifSpy = jest.spyOn(guessGif, 'default');
+const removePlayingStatusTextSpy = jest.spyOn(removePlayStatusText, 'default').mockImplementation(() => null as any);
+const guessGifSpy = jest.spyOn(guessGif, 'default').mockImplementation(() => null as any);
 
 describe('closeGifProcess test suites', () => {
   beforeEach(() => {

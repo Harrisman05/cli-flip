@@ -6,10 +6,12 @@ import * as writeAnswerPromptReplica from '../../../../src/utils/process/writeAn
 
 import { MOCK_CHOICES, MOCK_TRICK } from '../../../mocks/quizData.mock';
 
-const writeDataSpy = jest.spyOn(writeData, 'default');
-const writePlayingStatusSpy = jest.spyOn(writePlayingStatus, 'default');
-const writeStanceSpy = jest.spyOn(writeStance, 'default');
-const writeAnswerPromptReplicaSpy = jest.spyOn(writeAnswerPromptReplica, 'default');
+const writeDataSpy = jest.spyOn(writeData, 'default').mockImplementation(() => null as any);
+const writePlayingStatusSpy = jest.spyOn(writePlayingStatus, 'default').mockImplementation(() => null as any);
+const writeStanceSpy = jest.spyOn(writeStance, 'default').mockImplementation(() => null as any);
+const writeAnswerPromptReplicaSpy = jest
+  .spyOn(writeAnswerPromptReplica, 'default')
+  .mockImplementation(() => null as any);
 
 describe('writeGifProcess test suites', () => {
   beforeEach(() => {

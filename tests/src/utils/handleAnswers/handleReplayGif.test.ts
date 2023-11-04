@@ -3,8 +3,8 @@ import * as clearAllOutput from '../../../../src/utils/cleanTerminal/clearAllOut
 import * as startGif from '../../../../src/utils/quizControl/startGif';
 import { MOCK_CHOICES, MOCK_QUIZ_TRICKS, MOCK_TRICK } from '../../../mocks/quizData.mock';
 
-const clearAllOutputSpy = jest.spyOn(clearAllOutput, 'default');
-const startGifSpy = jest.spyOn(startGif, 'default');
+const clearAllOutputSpy = jest.spyOn(clearAllOutput, 'default').mockImplementation(() => null as any);
+const startGifSpy = jest.spyOn(startGif, 'default').mockImplementation(() => null as any);
 
 describe('handleReplayGif test suites', () => {
   beforeEach(() => {

@@ -12,9 +12,9 @@ import {
 } from '../../../mocks/quizData.mock';
 import inquirer from 'inquirer';
 
-const handleReplayGifSpy = jest.spyOn(handleReplayGif, 'default');
-const handleCorrectAnswerSpy = jest.spyOn(handleCorrectAnswer, 'default');
-const handleWrongAnswerSpy = jest.spyOn(handleWrongAnswer, 'default');
+const handleReplayGifSpy = jest.spyOn(handleReplayGif, 'default').mockImplementation(() => null as any);
+const handleCorrectAnswerSpy = jest.spyOn(handleCorrectAnswer, 'default').mockImplementation(() => null as any);
+const handleWrongAnswerSpy = jest.spyOn(handleWrongAnswer, 'default').mockImplementation(() => null as any);
 
 describe('guessGif test suites', () => {
   let inquirerSpy: any;

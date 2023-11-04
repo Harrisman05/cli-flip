@@ -1,8 +1,8 @@
 import removePlayingStatusText from '../../../../src/utils/cleanTerminal/removePlayingStatusText';
 import readline from 'readline';
 
-const spyReadlineClearLine = jest.spyOn(readline, 'clearLine');
-const spyReadlineMoveCursor = jest.spyOn(readline, 'moveCursor');
+const spyReadlineClearLine = jest.spyOn(readline, 'clearLine').mockImplementation(() => null as any);
+const spyReadlineMoveCursor = jest.spyOn(readline, 'moveCursor').mockImplementation(() => null as any);
 
 describe('removePlayingStatusText test suites', () => {
   beforeEach(() => {
