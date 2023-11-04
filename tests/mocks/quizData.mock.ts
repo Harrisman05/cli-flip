@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import { Trick } from '../../src/model/Trick';
 import { Tricks } from '../../src/model/Tricks';
 
@@ -67,7 +68,7 @@ export const MOCK_RANDOM_TRICK_AS_HEELFLIP: Trick = {
   stance: 'Regular',
 };
 
-export const MOCK_CHOICES = ['Double Hardflip', 'Switch Kickflip', 'Varial Heelflip', 'Fakie Double Dolphin Flip'];
+export const MOCK_CHOICES = ['Hardflip', 'Switch Kickflip', 'Varial Heelflip', 'Fakie Double Dolphin Flip'];
 
 export const MOCK_TRICKBANK: Tricks = {
   switchKickflip: {
@@ -159,3 +160,9 @@ export const MOCK_TRICKBANK: Tricks = {
     src: 'https://www.youtube.com/watch?v=tLET_hFcI7M',
   },
 };
+
+export const MOCK_REPLAY_GIF_CHOICE = { choice: `${chalk.dim('REPLAY GIF')}` };
+
+export const MOCK_CORRECT_CHOICE_ANSWER = { choice: `${chalk.yellow(MOCK_TRICK.name)}` };
+
+export const MOCK_WRONG_CHOICE_ANSWER = { choice: `${chalk.yellow(MOCK_CHOICES[3])}` };
