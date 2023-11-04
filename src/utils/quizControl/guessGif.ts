@@ -18,9 +18,9 @@ const guessGif = async (quizTricks: Tricks, correctTrick: Trick, choices: string
 
   if (answer.trick === `${chalk.dim('REPLAY GIF')}`) {
     handleReplayGif(quizTricks, correctTrick, choices);
-  } else if (answer.trick === `${chalk.yellow(`${correctTrick.name}`)}`) {
+  } else if (answer.trick === `${chalk.yellow(correctTrick.name)}`) {
     handleCorrectAnswer(quizTricks, correctTrick);
-  } else if (answer.trick !== `${chalk.yellow(`${correctTrick.name}`)}`) {
+  } else if (answer.trick !== `${chalk.yellow(correctTrick.name)}`) {
     handleWrongAnswer(quizTricks, correctTrick);
   }
 };
