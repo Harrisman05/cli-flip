@@ -4,9 +4,9 @@ import removePromptText from '../cleanTerminal/removePromptText';
 import guessGif from '../quizControl/guessGif';
 
 const closeGifProcess = (currentQuizTricks: Tricks, correctTrick: Trick, currentChoices: string[]) => {
-  return async (): Promise<void> => {
+  return (): void => {
     removePromptText();
-    await guessGif(currentQuizTricks, correctTrick, currentChoices);
+    guessGif(currentQuizTricks, correctTrick, currentChoices);
   };
 };
 
