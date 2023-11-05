@@ -68,6 +68,15 @@ export const MOCK_RANDOM_TRICK_AS_HEELFLIP: Trick = {
   stance: 'Regular',
 };
 
+export const MOCK_TRICK_INTERFACE = {
+  filepath: expect.any(String),
+  name: expect.any(String),
+  propName: expect.any(String),
+  skater: expect.any(String),
+  src: expect.any(String),
+  stance: expect.any(String),
+};
+
 export const MOCK_CHOICES = ['Hardflip', 'Switch Kickflip', 'Varial Heelflip', 'Fakie Double Dolphin Flip'];
 
 export const MOCK_TRICKBANK: Tricks = {
