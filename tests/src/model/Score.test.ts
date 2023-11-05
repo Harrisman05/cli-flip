@@ -1,5 +1,3 @@
-import { describe, beforeEach, expect } from '@jest/globals';
-
 import Score from '../../../src/model/Score';
 
 describe('Score Class tests', () => {
