@@ -1,32 +1,24 @@
-import chalk from 'chalk';
-import { score } from '../../model/Score';
+import writePlayingStatus from './writePlayingStatus';
+import writeStance from './writeStance';
+import writeAnswerPromptReplica from './writeAnswerPromptReplica';
+import writeData from './writeData';
 
 const writeGifProcess = (choices: string[], stance: string): ((data: string) => void) => {
-  let textLogged = false;
-  return (data: string): void => {
-    process.stdout.write(data);
-    if (!textLogged) {
-      process.stdout.write(`                                           ${chalk.green('Playing gif...')}\n`);
-      process.stdout.write(`  ${chalk.cyan(`Skater stance: ${stance}\n`)}`);
-      process.stdout.write('\n');
-      process.stdout.write(
-        `${chalk.green('?')} ${chalk.bold('Guess the trick! 🛹🤔')} ${chalk.dim('(input blocked)')}\n`,
-      );
-      process.stdout.write('\n');
-      process.stdout.write(`  ${chalk.yellow(choices[0])}\n`);
-      process.stdout.write(`  ${chalk.yellow(choices[1])}\n`);
-      process.stdout.write(`  ${chalk.yellow(choices[2])}\n`);
-      process.stdout.write(`  ${chalk.yellow(choices[3])}\n`);
-      process.stdout.write('\n');
-      process.stdout.write(
-        `  ✅ - ${chalk.green(score.correctAnswers)} | ❌ - ${chalk.red(score.incorrectAnswers)} | ${
-          score.currentQuestion
-        }/${score.totalQuestions}`,
-      );
-      process.stdout.write('\n');
+  // textWrittenOnce creates a closure with the callback, as callback can access variables in previous functions scope
+  let textWrittenOnce = false;
+
+  // defining callback here and returning it makes this more readable and testable
+  const dataCallback = (data: string): void => {
+    writeData(data);
+    if (!textWrittenOnce) {
+      writePlayingStatus();
+      writeStance(stance);
+      writeAnswerPromptReplica(choices);
     }
-    textLogged = true;
+    textWrittenOnce = true;
   };
+
+  return dataCallback;
 };
 
 export default writeGifProcess;

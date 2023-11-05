@@ -68,7 +68,7 @@ const masterTrickStore: MasterTrickStore = {
   },
   heelflipFrontsideBodyVarial: {
     heelflipFrontsideBodyVarial: {},
-    switchHeelflip: {
+    switchHeelflipFrontsideBodyVarial: {
       name: 'Switch Heelflip Frontside Body Varial',
       propName: 'switchHeelflipFrontsideBodyVarial',
       filepath: `${masterTrickStoreBasePath}${heelflipFrontsideBodyVarialFolder}switch-heelflip-frontside-body-varial.gif`,
@@ -76,8 +76,8 @@ const masterTrickStore: MasterTrickStore = {
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
     },
-    nollieHeelflip: {},
-    fakieHeelflip: {},
+    nollieHeelflipFrontsideBodyVarial: {},
+    fakieHeelflipFrontsideBodyVarial: {},
   },
   varialHeelflips: {
     varialHeelflip: {
