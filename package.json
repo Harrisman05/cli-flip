@@ -9,7 +9,9 @@
         "test": "jest",
         "coverage": "jest --coverage",
         "lint": "eslint . --fix && prettier . --write",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "convert": "npx ts-node ./src/convertGifToBraille/convertGifToBraille.ts",
+        "output": "npx ts-node ./src/outputBrailleGif/outputBrailleGif.ts"
     },
     "repository": {
         "type": "git",
