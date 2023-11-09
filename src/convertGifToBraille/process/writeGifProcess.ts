@@ -1,9 +1,9 @@
 import writeData from './writeData';
 import fs from 'fs';
 
-const writeGifProcess = (subfolder: string, trickGifFile: string): ((data: string) => void) => {
-  if (!fs.existsSync(`output/${subfolder}/${trickGifFile}`)) {
-    fs.mkdir(`output/${subfolder}`, { recursive: true }, (err) => {
+const writeGifProcess = (trickGifFile: string): ((data: string) => void) => {
+  if (!fs.existsSync(`output/${trickGifFile}`)) {
+    fs.mkdir(`output/${trickGifFile}`, (err) => {
       if (err) {
         console.error(`Error creating directory: ${err.message}`);
       } else {
@@ -14,7 +14,7 @@ const writeGifProcess = (subfolder: string, trickGifFile: string): ((data: strin
 
   let frame = 1;
   const dataCallback = (data: string): void => {
-    writeData(data, frame, subfolder);
+    writeData(data, frame, trickGifFile);
     frame++;
   };
 

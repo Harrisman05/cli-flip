@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 
-const writeData = (data: string, frame: number, trick: string): void => {
+const writeData = (data: string, frame: number, trickGifFile: string): void => {
   process.stdout.write(data);
 
-  const frameFilename = `output/${trick}/${trick}_frame-${frame}.txt`;
+  const frameFilename = `output/${trickGifFile}/${trickGifFile}_frame-${frame}.txt`;
 
   fs.writeFileSync(frameFilename, data, 'utf8');
 

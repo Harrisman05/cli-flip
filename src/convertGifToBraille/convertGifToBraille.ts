@@ -30,11 +30,9 @@ import spawnGifProcess from './process/spawnGifProcess';
 // };
 
 export const convertGifToBraille = (): void => {
-  const trick = 'doubleDolphinFlips';
   const trickWithStanceGif = 'fakie-double-dolphin-flip.gif';
 
-  // const inputFilepaths = await getFilePaths();
-  spawnGifProcess(trick, trickWithStanceGif);
+  spawnGifProcess(trickWithStanceGif);
 
   // for (const file of inputFilepaths) {
   //   spawnGifProcess(file.file, file.filePath);
