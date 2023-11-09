@@ -1,42 +1,37 @@
 #!/usr/bin/env node
 
 import spawnGifProcess from './process/spawnGifProcess';
-// import util from 'util';
-// import fs from 'fs';
-// import path from 'path';
+import util from 'util';
+import fs from 'fs';
 
-// const readdirPromise = util.promisify(fs.readdir);
+const readdirPromise = util.promisify(fs.readdir);
 
-// const getFilePaths = async (): Promise<
-//   {
-//     file: string;
-//     filePath: string;
-//   }[]
-// > => {
-//   try {
-//     const rootInputPath = '../../input';
-//     const files = await readdirPromise(rootInputPath);
+const getFilePaths = async (): Promise<
+  {
+    file: string;
+  }[]
+> => {
+  try {
+    const rootInputPath = 'input';
+    const files = await readdirPromise(rootInputPath);
 
-//     const filePaths = files.map((file) => ({
-//       file,
-//       filePath: path.join(rootInputPath, file),
-//     }));
+    const filePaths = files.map((file) => ({
+      file,
+    }));
 
-//     return filePaths;
-//   } catch (err: any) {
-//     console.error(`Error reading directory: ${err.message}`);
-//     throw err;
-//   }
-// };
+    return filePaths;
+  } catch (err: any) {
+    console.error(`Error reading directory: ${err.message}`);
+    throw err;
+  }
+};
 
-export const convertGifToBraille = (): void => {
-  const trickWithStanceGif = 'fakie-double-dolphin-flip.gif';
+export const convertGifToBraille = async (): Promise<void> => {
+  const inputFiles = await getFilePaths();
 
-  spawnGifProcess(trickWithStanceGif);
-
-  // for (const file of inputFilepaths) {
-  //   spawnGifProcess(file.file, file.filePath);
-  // }
+  for (const inputFile of inputFiles) {
+    spawnGifProcess(inputFile.file);
+  }
 };
 
 /* istanbul ignore next */

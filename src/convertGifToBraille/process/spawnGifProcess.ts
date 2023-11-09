@@ -17,10 +17,7 @@ const spawnGifProcess = (trickWithStanceGif: string): void => {
 
   taiProcess.stdout.on('close', () => {
     console.log('All files have been processed.');
-    process.exit();
   });
-
-  // close stream, remove the prompt text and close rl interface
 };
 
 export default spawnGifProcess;
