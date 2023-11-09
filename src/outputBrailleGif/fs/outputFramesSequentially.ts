@@ -3,7 +3,7 @@ import sleep from '../utils/sleep';
 
 const outputFramesSequentially = (frameNames: string[]): void => {
   if (frameNames.length === 0) {
-    console.log('All files have been processed.');
+    console.log('All frames have been displayed.');
     return;
   }
 

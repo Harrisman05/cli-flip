@@ -2,7 +2,6 @@ import getFramesNum from './getFramesNum';
 
 const getTrickWithStanceFileNames = async (trickWithStancePath: string): Promise<string[]> => {
   const fileCount = await getFramesNum(trickWithStancePath);
-  console.log(`${trickWithStancePath.split('/')[1]}_frame-`);
 
   const frameFileName = `${trickWithStancePath.split('/')[1]}_frame-`;
   const frameNameTemplate = `${trickWithStancePath}/${frameFileName}`;
