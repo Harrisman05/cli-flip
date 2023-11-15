@@ -11,7 +11,7 @@
         "lint": "eslint . --fix && prettier . --write",
         "prepare": "husky install",
         "convert": "npx ts-node ./src/convertGifToBraille/convertGifToBraille.ts",
-        "output": "npx ts-node ./src/outputBrailleGif/outputBrailleGif.ts"
+        "output": "node --env-file .env -r ts-node/register src/outputBrailleGif/outputBrailleGif.ts"
     },
     "repository": {
         "type": "git",
@@ -39,6 +39,7 @@
         "lint-staged": "^14.0.1",
         "mock-stdin": "^1.0.0",
         "prettier": "^3.0.3",
+        "ts-node": "^10.9.1",
         "typescript": "^5.2.2"
     },
     "dependencies": {
