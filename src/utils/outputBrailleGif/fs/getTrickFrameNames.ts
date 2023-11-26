@@ -3,7 +3,7 @@ import getFramesNum from './getFramesNum';
 const getTrickFrameNames = async (trickWithStancePath: string): Promise<string[]> => {
   const fileCount = await getFramesNum(trickWithStancePath);
 
-  const frameFileName = `${trickWithStancePath.split('/')[2]}_frame-`;
+  const frameFileName = `${trickWithStancePath.split('/')[3]}_frame-`;
   const frameNameTemplate = `${trickWithStancePath}/${frameFileName}`;
 
   const frameNames = [];
