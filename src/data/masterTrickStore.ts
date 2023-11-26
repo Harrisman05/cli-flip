@@ -1,7 +1,5 @@
 import { MasterTrickStore } from '../model/MasterTrickStore';
 
-const masterTrickStoreBasePath = './assets/masterTrickStore/';
-
 const kickflipFolder = 'kickflips/';
 const doubleKickflipFolder = 'doubleKickflips/';
 const heelflipFolder = 'heelflips/';
@@ -18,7 +16,7 @@ const masterTrickStore: MasterTrickStore = {
     switchKickflip: {
       name: 'Switch Kickflip',
       propName: 'switchKickflip',
-      filepath: `${masterTrickStoreBasePath}${kickflipFolder}switch-kickflip.gif`,
+      filepath: `${kickflipFolder}switch-kickflip.gif`,
       skater: 'Louie Lopez',
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
@@ -27,7 +25,7 @@ const masterTrickStore: MasterTrickStore = {
     fakieKickflip: {
       name: 'Fakie Kickflip',
       propName: 'fakieKickflip',
-      filepath: `${masterTrickStoreBasePath}${kickflipFolder}fakie-kickflip.gif`,
+      filepath: `${kickflipFolder}fakie-kickflip.gif`,
       skater: 'John Chyk',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=1bWni8NZ-gk',
@@ -39,7 +37,7 @@ const masterTrickStore: MasterTrickStore = {
     nollieDoubleKickflip: {
       name: 'Nollie Double Kickflip',
       propName: 'nollieDoubleKickflip',
-      filepath: `${masterTrickStoreBasePath}${doubleKickflipFolder}nollie-double-kickflip.gif`,
+      filepath: `${doubleKickflipFolder}nollie-double-kickflip.gif`,
       skater: 'Louie Lopez',
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
@@ -50,7 +48,7 @@ const masterTrickStore: MasterTrickStore = {
     heelflip: {
       name: 'Heelflip',
       propName: 'heelflip',
-      filepath: `${masterTrickStoreBasePath}${heelflipFolder}heelflip.gif`,
+      filepath: `${heelflipFolder}heelflip.gif`,
       skater: 'TJ Rogers',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=1bWni8NZ-gk',
@@ -58,7 +56,7 @@ const masterTrickStore: MasterTrickStore = {
     switchHeelflip: {
       name: 'Switch Heelflip',
       propName: 'switchHeelflip',
-      filepath: `${masterTrickStoreBasePath}${heelflipFolder}switch-heelflip.gif`,
+      filepath: `${heelflipFolder}switch-heelflip.gif`,
       skater: 'John Chyk',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=1bWni8NZ-gk',
@@ -71,7 +69,7 @@ const masterTrickStore: MasterTrickStore = {
     switchHeelflipFrontsideBodyVarial: {
       name: 'Switch Heelflip Frontside Body Varial',
       propName: 'switchHeelflipFrontsideBodyVarial',
-      filepath: `${masterTrickStoreBasePath}${heelflipFrontsideBodyVarialFolder}switch-heelflip-frontside-body-varial.gif`,
+      filepath: `${heelflipFrontsideBodyVarialFolder}switch-heelflip-frontside-body-varial.gif`,
       skater: 'Louie Lopez',
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
@@ -83,7 +81,7 @@ const masterTrickStore: MasterTrickStore = {
     varialHeelflip: {
       name: 'Varial Heelflip',
       propName: 'varialHeelflip',
-      filepath: `${masterTrickStoreBasePath}${varialHeelflipFolder}varial-heelflip.gif`,
+      filepath: `${varialHeelflipFolder}varial-heelflip.gif`,
       skater: 'Louie Lopez',
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
@@ -96,7 +94,7 @@ const masterTrickStore: MasterTrickStore = {
     hardflip: {
       name: 'Hardflip',
       propName: 'hardflip',
-      filepath: `${masterTrickStoreBasePath}${hardflipFolder}hardflip.gif`,
+      filepath: `${hardflipFolder}hardflip.gif`,
       skater: 'Louie Lopez',
       stance: 'Goofy',
       src: 'https://www.youtube.com/watch?v=oxc0us0qolq',
@@ -110,7 +108,7 @@ const masterTrickStore: MasterTrickStore = {
     switchLateHardflip: {
       name: 'Switch Late Hardflip',
       propName: 'switchLateHardflip',
-      filepath: `${masterTrickStoreBasePath}${lateHardflipFolder}switch-late-hardflip.gif`,
+      filepath: `${lateHardflipFolder}switch-late-hardflip.gif`,
       skater: 'Jamie Griffin',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=tLET_hFcI7M',
@@ -122,7 +120,7 @@ const masterTrickStore: MasterTrickStore = {
     doubleHardflip: {
       name: 'Double Hardflip',
       propName: 'doubleHardflip',
-      filepath: `${masterTrickStoreBasePath}${doubleHardflipFolder}double-hardflip.gif`,
+      filepath: `${doubleHardflipFolder}double-hardflip.gif`,
       skater: 'Jamie Griffin',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=tLET_hFcI7M',
@@ -138,7 +136,7 @@ const masterTrickStore: MasterTrickStore = {
     fakieDoubleDolphinFlip: {
       name: 'Fakie Double Dolphin Flip',
       propName: 'fakieDoubleDolphinFlip',
-      filepath: `${masterTrickStoreBasePath}${doubleDolphinFlipFolder}fakie-double-dolphin-flip.gif`,
+      filepath: `${doubleDolphinFlipFolder}fakie-double-dolphin-flip.gif`,
       skater: 'Jamie Griffin',
       stance: 'Regular',
       src: 'https://www.youtube.com/watch?v=tLET_hFcI7M',
