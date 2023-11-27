@@ -4,8 +4,10 @@ import inquirer from 'inquirer';
 import chalk from 'chalk';
 import showRules from './utils/showRules';
 import startGif from './utils/quizControl/startGif';
+import { checkAssets } from './downloads/checkAssets';
 
 export const main = async (): Promise<void> => {
+  await checkAssets();
   await startQuiz();
 };
 
